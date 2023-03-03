@@ -1,6 +1,9 @@
 <template>
     <main class="main">
         <div class="container">
+            <div>
+                <p>Carte di Yu-Gi-Oh nella pagina: {{ store.cards.length }}</p>
+            </div>
             <ul class="card-list">
                 
                 <Card v-for="card in store.cards" :key="card.id" :card="card" />
@@ -56,6 +59,12 @@ export default{
 .main{
     padding: 40px;
     background-image: url('https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/084d243d-e248-4e6c-8877-21895886b8bb/d7xwheu-a54f38fb-ac20-48d5-a7c8-893ccd06701b.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzA4NGQyNDNkLWUyNDgtNGU2Yy04ODc3LTIxODk1ODg2YjhiYlwvZDd4d2hldS1hNTRmMzhmYi1hYzIwLTQ4ZDUtYTdjOC04OTNjY2QwNjcwMWIucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.5lDicK3YzccLUhMNmIbm52s0J54ukQozFesqL3X2ojE');
+
+    p{
+        color: white;
+        font-size: 25px;
+        margin-bottom: 10px;
+    }
 }
 
 .card-list{
