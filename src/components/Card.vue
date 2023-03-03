@@ -1,6 +1,6 @@
 <template>
     <li>
-        <img :src="card.card_sets.card_images[0].image_url" alt="">
+        <img :src="card.card_images[0].image_url" alt="">
         <p>{{card.name}}</p>
     </li>
 </template>
