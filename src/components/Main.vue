@@ -7,11 +7,12 @@
             <div>
                 <p>Carte di Yu-Gi-Oh nella pagina: {{ store.cards.length }}</p>
             </div>
-            <ul class="card-list">
+            <ul v-if="store.cards.length > 0" class="card-list">
                 
                 <Card v-for="card in store.cards" :key="card.id" :card="card" />
                 
             </ul>
+            <p v-else>Nessuna carta trovata</p>
         </div>
     </main>
 </template>
@@ -56,7 +57,10 @@ export default{
                 // this.cards = res.data.data;
                 this.store.cards = res.data.data;
 
-            })
+            }).catch((error) => {
+            // console.log(error)
+            this.store.cards = []
+          })
         }
     },
     created(){
