@@ -1,7 +1,8 @@
 import { reactive } from 'vue';
 
 const store = reactive({
-    cards: []
+    cards: [],
+    inputValue: '',
 })
 
 export default store

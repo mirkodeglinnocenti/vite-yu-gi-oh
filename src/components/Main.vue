@@ -1,5 +1,8 @@
 <template>
     <main class="main">
+
+        <Filters @onInput="fetchCard" />
+
         <div class="container">
             <div>
                 <p>Carte di Yu-Gi-Oh nella pagina: {{ store.cards.length }}</p>
@@ -18,12 +21,15 @@
 import axios from 'axios';
 // Card è un componente
 import Card from './Card.vue';
+// Filters è un componente
+import Filters from './Filters.vue';
 // store è dove si trovano le info date dalle api
 import store from '../store';
 
 export default{
     components:{
         Card,
+        Filters,
     },
     data(){
         return{
@@ -34,7 +40,14 @@ export default{
     methods:{
         fetchCard(){
             axios
-            .get('https://db.ygoprodeck.com/api/v7/cardinfo.php?num=50&offset=0')
+            // .get('https://db.ygoprodeck.com/api/v7/cardinfo.php?num=50&offset=0')
+            .get('https://db.ygoprodeck.com/api/v7/cardinfo.php',{
+                params:{
+                    num: 20,
+                    offset: 0,
+                    fname: this.store.inputValue,
+                }
+            })
             .then((res) => {
                 // console.log(res);
                 // console.log(res.data);
